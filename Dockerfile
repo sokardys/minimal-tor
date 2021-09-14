@@ -13,9 +13,9 @@ RUN chown -R tor /etc/tor
 # Set `tor` as the default user during the container runtime
 USER tor
 
-# Set `tor` as the entrypoint for the image
-ENTRYPOINT ["tor"]
+HEALTHCHECK --timeout=10s --start-period=60s \
+    CMD curl --fail --socks5-hostname localhost:9150 -I -L 'https://www.facebookcorewwwi.onion/' || exit 1
 
-# Set the default container command
-# This can be overridden later when running a container
-CMD ["-f", "/etc/tor/torrc"]
+EXPOSE 53/udp 9150/tcp
+
+CMD ["/usr/bin/tor", "-f", "/etc/tor/torrc"]

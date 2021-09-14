@@ -1,1 +1,6 @@
-SocksPort 0.0.0.0:9200
+HardwareAccel 1
+NumCPUs 4
+Log notice stdout
+DNSPort 0.0.0.0:53
+SocksPort 0.0.0.0:9150
+DataDirectory /var/lib/tor

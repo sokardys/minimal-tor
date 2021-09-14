@@ -9,5 +9,5 @@ docker build -t sokardys/minimal-tor .
 EXECUTE
 
 ```bash
-docker run -d --name tor -p 127.0.0.1:9200:9200 sokardys/minimal-tor
+docker run -d --name tor -p 127.0.0.1:9150:9150 sokardys/minimal-tor
 ```
